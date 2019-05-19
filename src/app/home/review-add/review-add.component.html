@@ -1,0 +1,27 @@
+<h5 class="text-info">Add a new review for {{movie.title | titlecase}}</h5>
+<div *ngFor="let error of errors">
+  <small class="text-danger">{{error}}</small>
+</div>
+<form (submit)="onSubmit($event, reviewForm)" #reviewForm="ngForm">
+  <div class="form-group">
+    <label for="name">Your name</label>
+    <input type="text" class="form-control" name="name" placeholder="Enter your name" [(ngModel)]="review.name"
+      required>
+  </div>
+  <div class="form-group">
+    <label for="star">Star</label>
+    <select class="form-control" name="star" [(ngModel)]="review.star">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="name">Content</label>
+    <textarea class="form-control" name="content" rows="3" [(ngModel)]="review.content"></textarea>
+  </div>
+  <button type="button" class="btn btn-warning mr-4" [routerLink]="['/movies']">Cancel</button>
+  <button type="submit" [disabled]="reviewForm.invalid" class="btn btn-success">Submit</button>
+</form>

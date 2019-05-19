@@ -1,0 +1,21 @@
+<h6><a class="nav-link float-right" [routerLink]="['/movies/new']">Add a new movie</a></h6>
+<h3>Movie List</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Movie Title</th>
+      <th scope="col">Average Rating</th>
+      <th scope="col">Avaliable Actives</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies">
+      <td>{{movie.title | titlecase}}</td>
+      <td>{{movie.rating}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm mr-2" [routerLink]="['/movies/', movie._id]">Read Reviews</button>
+        <button class="btn btn-info btn-sm" [routerLink]="['/movies/', movie._id, 'review']">Write Review</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

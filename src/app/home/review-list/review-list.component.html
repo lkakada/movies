@@ -1,0 +1,22 @@
+<button class="btn btn-danger float-right" (click)="deleteMovie(movie)">Delete Movie</button>
+<h3>Review For {{movie.title | titlecase}}</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Reviewer</th>
+      <th scope="col">Stars</th>
+      <th scope="col">Reviews</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let review of movie.reviews">
+      <td>{{review.name | titlecase}}</td>
+      <td>{{review.star}}</td>
+      <td>{{review.content}}</td>
+      <td>
+        <button class="btn btn-danger btn-sm mr-2" (click)="deleteReview(review)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
